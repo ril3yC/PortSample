@@ -94,6 +94,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 12px;
 }
 
 .nav__link--list {
@@ -168,21 +169,40 @@ nav {
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0);
     margin-bottom: 28px;
+    animation: animate-pp 800ms 200ms backwards;
 }
+
+@keyframes animate-pp {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
 
 .about-me__info--para {
    font-size: 20px; 
    margin-bottom: 28px;
+   animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__info--title {
     margin-bottom: 28px;
+    animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__link {
     font-size: 20px;
     color: black;
     padding: 0 16px;
+}
+
+.about-me__links {
+    animation: fade-up 650ms 800ms backwards;
 }
 
 .about-me__img--container {
@@ -194,6 +214,47 @@ nav {
 
 .about-me__img {
     width: 100%;
+    animation: fade-in 2000ms 1500ms backwards;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(480px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    
+100% {
+    opacity: 1;
+    }
+}
+
+.handshake {
+    display: inline-block;
+    animation: animate-handshake 1000ms infinite ease-in-out;
+}
+
+@keyframes animate-handshake {
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(15deg)
+    }
+    75%{
+        transform: rotate(-15deg);
+    }
+    100%{
+        transform: rotate (0)
+    }
 }
 
 /* TECH STACK */
@@ -313,5 +374,30 @@ footer {
     transform: translateX(60px);
     opacity: 1;
   }
-  
 
+ /* Small phones, tablets and smart phones */
+ 
+  @media (max-width: 768px) {
+    nav {
+        height: 68px;
+    }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .about-me__info--para {
+    font-size: 18px;
+  }
+
+  .language {
+    width: calc(100% / 1)
+  }
+}
+
+/* Small phones*/
+@media (max-width: 480px) {
+    .nav__link:not(:last-child) {
+        display: none;
+    }
+}
